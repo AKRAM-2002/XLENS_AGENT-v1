@@ -8,8 +8,8 @@ import os
 load_dotenv()
 
 llm = LLM(
-    model="gemini/gemini-1.5-flash",
-    api_key=os.getenv("GEMINI_API_KEY"),
+    model="gemini/gemini-pro",
+    google_api_key=os.getenv("GEMINI_API_KEY"),
     temperature=0
 )
 
@@ -41,5 +41,5 @@ class FactCheckerCrew():
             tasks=self.tasks,
             process=Process.sequential,
             verbose=True,
-            memory=True
+            memory=False
         )

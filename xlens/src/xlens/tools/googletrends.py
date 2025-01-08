@@ -1,5 +1,5 @@
 from typing import List, Dict, Any
-from crewai_tools import tool
+from crewai.tools import tool
 from pytrends.request import TrendReq
 import pandas as pd
 

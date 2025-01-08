@@ -1,4 +1,4 @@
-from crewai_tools import BaseTool
+from crewai_tools import RagTool
 import tweepy
 import os
 from typing import List, Optional, Dict, Any

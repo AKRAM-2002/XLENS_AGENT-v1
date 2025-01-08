@@ -9,10 +9,16 @@ load_dotenv(r"C:\Users\HP\Desktop\PROJECTS\BUILDATHON\X_LENS_TEST\xlens\.env")
 
 # Check our tools documentations for more information on how to use them
 # from crewai_tools import SerperDevTool
-llm=LLM(
-	model="groq/llama-3.1-70b-versatile",
- api_key=os.getenv("GROQ_API_KEY"),
- temperature=0
+# llm=LLM(
+# 	model="groq/llama-3.1-70b-versatile",
+#  api_key=os.getenv("GROQ_API_KEY"),
+#  temperature=0
+# )
+
+llm = LLM(
+	model="gemini/gemini-pro",
+	google_api_key=os.getenv("GEMINI_API_KEY"),
+	temperature=0
 )
 @CrewBase
 class SentimentAnalyzerCrew():

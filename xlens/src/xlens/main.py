@@ -3,11 +3,11 @@ import uvicorn
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from xlens.src.xlens.tools.twittertool import TwitterTool
+from tools.twittertool import TwitterTool
 from crewai.flow.flow import Flow, start,listen
-from xlens.src.xlens.crews.fact_checker.fact_checker_crew import FactCheckerCrew
-from xlens.src.xlens.crews.sentiment_analyzer.sentiment_analyzer_crew import SentimentAnalyzerCrew
-from xlens.src.xlens.crews.viral_tweet_generator.viral_tweet_generator_crew import ViralTweetGeneratorCrew
+from crews.fact_checker.fact_checker_crew import FactCheckerCrew
+from crews.sentiment_analyzer.sentiment_analyzer_crew import SentimentAnalyzerCrew
+from crews.viral_tweet_generator.viral_tweet_generator_crew import ViralTweetGeneratorCrew
 
 app = FastAPI(title="XLENS", description="APP for X Sentiment Analysis, Fact Checking, and Viral Thread Generation")
 
