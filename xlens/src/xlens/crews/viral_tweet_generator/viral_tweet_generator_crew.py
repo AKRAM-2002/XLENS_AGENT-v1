@@ -1,24 +1,17 @@
 from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
-from crewai_tools import SerperDevTool, ScrapeWebsiteTool,TXTSearchTool,FileReadTool
+from crewai_tools import SerperDevTool, ScrapeWebsiteTool, FileReadTool
 from xlens.src.xlens.tools.googletrends import GoogleTrendsTool
-# from tools.twittertool import TwitterTool
 from pydantic import BaseModel
 from dotenv import load_dotenv
 from typing import List
 import os
 
 load_dotenv()
-google_trends=GoogleTrendsTool()
+google_trends = GoogleTrendsTool()
+
 class Tweet(BaseModel):
     tweet: List[str]
-
-# Initialize LLM
-# llm = LLM(
-#     model="gemini/gemini-1.5-flash", 
-#     api_key=os.getenv("GEMINI_API_KEY"),
-#     temperature=0
-# )
 
 llm = LLM(
     model="gemini/gemini-pro",
@@ -60,7 +53,7 @@ class ViralTweetGeneratorCrew():
         return Task(
             config=self.tasks_config['viral_content_tweet'],
             agent=self.tweet_writer(),
-            tools=[TXTSearchTool(),FileReadTool(r"C:\Users\HP\Desktop\PROJECTS\BUILDATHON\X_LENS_TEST\tweet.txt")],
+            tools=[FileReadTool(r"C:\Users\HP\Desktop\PROJECTS\BUILDATHON\X_LENS_TEST\tweet.txt")],
             output_pydantic=Tweet,
             output_file="tweet.txt"
         )
@@ -73,12 +66,5 @@ class ViralTweetGeneratorCrew():
             tasks=self.tasks,
             process=Process.sequential,
             verbose=True,
-            memory=False,
-            embedder={
-                "provider": "google",
-                "config": {
-                    "api_key": os.getenv("GEMINI_API_KEY"),
-                    "model": "models/text-embedding-004"
-                }
-            }
+            memory=False
         )

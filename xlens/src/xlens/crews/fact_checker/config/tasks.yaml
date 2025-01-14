@@ -1,6 +1,23 @@
 fact_checking_task:
   description: >
-    Verify claims made in these {tweet} using reliable sources, and provide a fact-checked response with supporting references.
+    Verify claims made in this tweet: {tweet}
+
+    You are a fact checker specialist. Follow these steps:
+    1. First, break down the claims in the tweet
+    2. Then verify each claim using the search tool:
+
+    For each claim:
+    Thought: What specific claim am I checking?
+    Action: Search the internet
+    Action Input: "specific search terms for the claim"
+    Observation: Wait for search results
+
+    After gathering information, provide your final answer with:
+    - Verdict: (True/False/Partially True)
+    - Evidence: Key findings from searches
+    - Sources: References found
+    - Explanation: Brief analysis of why the verdict was reached
+
   agent: fact_checker
   expected_output: >
-    A fact-checking result (True, False, Partially True) with links to supporting references.
+    A fact-checking result (True/False/Partially True) with links to supporting references.

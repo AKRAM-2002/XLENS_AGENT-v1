@@ -1,6 +1,22 @@
 sentiment_analysis_task:
   description: >
-    Analyze the sentiment of the {tweet}  and classify them as positive, negative, or neutral.
+    Analyze the sentiment of this tweet: {tweet}
+
+    Follow these steps:
+    1. Identify emotional tone and key phrases
+    2. Consider context and any subtle nuances
+    3. Evaluate intensity of sentiment
+
+    Provide your analysis in this format ONLY:
+    SENTIMENT: [Positive/Negative/Neutral]
+    CONFIDENCE: [Score between 0.0-1.0]
+
+    Important:
+    - Be precise and concise
+    - Do not include explanations
+    - Focus on overall emotional tone
+    - Consider both explicit and implicit sentiment
+
   agent: analyzer
   expected_output: >
-    An overall  sentiment classification (positive, negative, neutral) with a confidence score and without the explanation .
+    A clear sentiment classification (positive/negative/neutral) with a confidence score between 0.0-1.0
